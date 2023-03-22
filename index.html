@@ -1,18 +1,25 @@
 <!doctype html> <!--html 문서임을 나타내는 코드 (특별한 동작은 x)-->
 <html> <!--html로 시작하고 html로 끝남. 닫는 문자는 그냥 슬래시-->
+	<title>구글 메인화면 예제</title>
 	<head>
-		<p style="text-align:left">
-			
+		<!--
+		<p style="text-align:left">	
 		</p><font size="2em" color="orange">문서제목,자바스크립트 코드, CSS 스타일 정의, 메타데이터정의</font>
 		<!--px(절대값), em(상대 길이)-->
 		<br> <!br은 줄 바꿈입니다.>
+		<hr> <!hr은 밑줄을 그려줍니다>
 	</head>
 	<body>
 		<p style="text-align:center">
-			<img src="img/googlelogo_color_272x92dp(1).png" alt="구글이미지">
-		</p>
+		<img src="img/googlelogo_color_272x92dp.png" alt="구글이미지">
+		<!--img(태그) src(경로)="폴더명/파일명..." 폴더명 일치시켜야 함!! 이미지 깨지면 alt출력--></p>
 		<br>
+		<p style="text-align:center"> 검색 :<input type="text" name="search" size="55" value=""> <button type="button" onclick="alert('검색을 수행합니다!')"> 검색 </button>
+		<br><br><br><br><br><br> <!--간격을 위해 줄바꿈을 여러번 추가--></p>
+			<hr> <!hr은 밑줄을 그려줍니다>
+		<!--
 		<p style="text-align:right"><font size="3em" color="green">문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 </font></p>
-		<br>
+		<br> <!br은 줄 바꿈입니다.>
+		-->
 	</body>
 </html>

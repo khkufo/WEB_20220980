@@ -1,11 +1,17 @@
 <!doctype html> <!html 문서임을 나타내는 코드 (특별한 동작은 x)>
 <html> <!html로 시작하고 html로 끝남. 닫는 문자는 그냥 슬래시>
+	<html lang="en">
 	<title>구글 메인화면 예제</title>
+		<!부트스트랩>
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<head><!메타데이터(base,title,link,meta,script,base)는 여기서 사용됨>
-		<meta name="author" content="학번"> <!저자 정보>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> <!저자 정보>
 		<meta charset="utf-8"> <!언어셋>
 		<meta name="keywords" content="coputer"> <!키워드(검색 엔진용)>
 		<base href="https://web--tccir.run.goorm.site/"> <!(hyper reference)href 속성이 링크를 의미:이미지,문자 모두 가능>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+		<script type="text/javascript" src="js/search.js" defer></script>
+		<!defer: 자바스크립트를 먼저 다 불러온 후에 html을 불러오게끔 함>
 	</head>
 	<body> <!하이퍼링크는 body태그에서 주로 사용됨>
 		<!--
@@ -15,16 +21,69 @@
 		<br> <!br은 줄 바꿈입니다.>
 		<hr> <!hr은 밑줄을 그려줍니다>
 		-->
-		<p style="text-align:center">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+		
+	<nav class="navbar navbar-expand-lg bg-light">
+		<!class는 디자인 등 라이브러리>
+  <div class="container-fluid">
+	  <!div class: 그리드(영역) 디자인>
+    <a class="navbar-brand" href="#">전체 메뉴</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!button class: 버튼 디자인>
+		<span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<!ul은 목록 그룹, li는 요소>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">홈페이지</a>
+			<!a class: 하이퍼링크>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://web--tccir.run.goorm.site/" target='_blank'>검색</a>
+        </li>
+		  <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/" target='_blank'>Youtube</a>
+        </li>
+		  <li class="nav-item">
+          <a class="nav-link" href="https://map.kakao.com/" target='_blank'>지도</a>
+        </li>
+		  <li class="nav-item">
+          <a class="nav-link" href="https://mail3.nate.com/" target='_blank'>메일</a>
+        </li>
+		  <li class="nav-item">
+          <a class="nav-link" href="https://play.google.com/" target='_blank'>앱스토어</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            기타 웹사이트
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+		
+		
+		<!--p style="text-align:center"--> <!가운데정렬을 div정렬방식으로 바꿔줌. img fluid가 부모 태그 이상 커지지 않으므로>
+		<div class="mx-auto" style="width:500px;">
 			<!target 속성(링크) _blank(새창),_self(현재창(기본값)),_parent(이전부모창),_top(현재윈도우전체)>
-		<a href="index.html" target="_blank"> <img src="img/googlelogo_color_272x92dp.png" alt="구글이미지"></a> <!이미지에 하이퍼링크>
-			<!img(태그) src(경로)="폴더명/파일명..." 폴더명 일치시켜야 함!! 이미지 깨지면 alt출력></p>
+		<a href="index.html" target="_blank"> <img src="img/googlelogo_color_272x92dp.png" class="img-fluid" alt="구글이미지"></a> <!이미지에 하이퍼링크>
+			<img src="" class="img-fluid" alt=""> <!이미지 반응형 자동크기조정>
+			<!img(태그) src(경로)="폴더명/파일명..." 폴더명 일치시켜야 함!! 이미지 깨지면 alt출력></div>
 		<br>
-		<p style="text-align:center"> 검색 :<input type="text" name="search" size="55" value=""> <button type="button" onclick="alert('검색을 수행합니다!')"> 검색 </button>
+		<p style="text-align:center"> 검색 :<input type="text" name="search" size="55" value=""> <button id="search_btn" type="button" onclick="alert('검색을 수행합니다!')"> 검색 </button>
 		<br><br><br><br><br><br> <!간격을 위해 줄바꿈을 여러번 추가></p>
 		
 		<table style="margin-left:auto; margin-right:auto;" border="1" width="500"> <!테이블(표)정의>
-			<caption>인기 검색어</caption> <!테이블 제목>
+			<caption align="top">인기 검색어</caption> <!테이블 제목>
 			<!--<thead> ... </thead> <!헤딩셀그룹>-->
 			<!--<tfoot> ... </tfoot> <!바닥셀그룹>-->
 			<tbody> <!데이터 셀 그룹(얘만 써도 됨)>
@@ -47,4 +106,15 @@
 		<br> <!br은 줄 바꿈입니다.>
 		-->
 	</body>
+	<footer class="bg-light text-center text-lg-start">
+ <div class="text-center p-3" style="backgroung-color:#D8D8D8;">
+  <h3 class="text-secondary"> FOOTER TEST</h3>
+  © 2020 Copyright: <a class="text-dark" href="https://web--tccir.run.goorm.site/">꾸글.com</a>
+	 <! i clas: 아이콘>
+   <i class=" bi bi-facebook" style="color: #3b5998; font-size:2rem;"> </i>
+   <i class=" bi bi-twitter" style="color: #55acee; font-size:2rem;"> </i>
+   <i class=" bi bi-instagram" style="color: #ac2bac; font-size:2rem;"> </i>
+  </div>
+</footer>
 </html>
+	

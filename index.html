@@ -10,7 +10,9 @@
 		<meta name="keywords" content="coputer"> <!키워드(검색 엔진용)>
 		<base href="https://web--tccir.run.goorm.site/"> <!(hyper reference)href 속성이 링크를 의미:이미지,문자 모두 가능>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+		<!d=자바스크립트 적용방법. head에 이렇게 script type, src defer로 넣음>
 		<script type="text/javascript" src="js/search.js" defer></script>
+		<script type="text/javascript" src="js/basic_test.js" defer></script>
 		<!defer: 자바스크립트를 먼저 다 불러온 후에 html을 불러오게끔 함>
 	</head>
 	<body> <!하이퍼링크는 body태그에서 주로 사용됨>
@@ -79,14 +81,25 @@
 			<img src="" class="img-fluid" alt=""> <!이미지 반응형 자동크기조정>
 			<!img(태그) src(경로)="폴더명/파일명..." 폴더명 일치시켜야 함!! 이미지 깨지면 alt출력></div>
 		<br>
+		<!--
 		<p style="text-align:center"> 검색 :<input type="text" name="search" size="55" value=""> <button id="search_btn" type="button" onclick="alert('검색을 수행합니다!')"> 검색 </button>
 		<br><br><br><br><br><br> <!간격을 위해 줄바꿈을 여러번 추가></p>
-		
+		-->
+		<form action="https://www.google.co.kr/search" method="GET" target='_blank'>
+			<!--form은 입력받은게 어디로 갈지 정해줌. GET은 입력한 검색어가 주소에 노출됨.(public)/POST는 입력정보가 url에 노출되지 않음.(private)-->
+			<div class="d-flex justify-content-center">
+				<mx-auto>
+					<input name="query" type="text" class="form-control-lg" placeholder="검색어 입력" aria-label="search" aria-describedby="search_btn" id="search_txt">
+				</mx-auto>
+				<button class="btn btn-success" type="submit" id="search_btn">검색</button>
+			</div>
+		</form>
+		<!--
 		<table style="margin-left:auto; margin-right:auto;" border="1" width="500"> <!테이블(표)정의>
 			<caption align="top">인기 검색어</caption> <!테이블 제목>
 			<!--<thead> ... </thead> <!헤딩셀그룹>-->
 			<!--<tfoot> ... </tfoot> <!바닥셀그룹>-->
-			<tbody> <!데이터 셀 그룹(얘만 써도 됨)>
+			<!--<tbody> <!데이터 셀 그룹(얘만 써도 됨)>
 				<!1행 tr> <!b는 글자 볼드체>
 				<tr> <td bgcolor="green"><b>영화</b></td><td bgcolor="blue">아저씨</td><td width="100" bgcolor="blue">어머니</td> <td width="100">헬머니</td> <td>할부지</td>  <tr>
 				<!2행 tr>
@@ -100,7 +113,39 @@
 				<!5행 tr>
 				<tr><td colspan="2"><a href="https://www.naver.com/" target='_blank'>네이버</a></td><td colspan="2" bgcolor="yellow"><a href="https://www.daum.net/" target='_blank'>다음</a></td><td colspan="2" bgcolor="purple"><a href="https://www.youtube.com/" target='_blank'>유튜브</a></td></tr>
 			</tbody>
-		</table> <!tr:행, th:열, td:데이터 셀>
+		</table> <!tr:행, th:열, td:데이터 셀>-->
+		
+		<div class="w-auto p-3" style="background-color:#;">
+			<!-- <table class="table table-striped table-bordered table-hover">-->
+			<table class="table table-dark table-hover">
+				<caption align="top">현재 검색어: <p id="search_message"></p></caption>
+			<tbody class="table-group-divider">
+				<tr bgcolor="yellow">
+				<td class="table-primary" width="50"><b>영화</b></td>
+				<td width="80" bgcolor="blue">아저씨</td>
+				<td width="80" bgcolor="blue">아저씨</td>
+				<td width="100">어머니</td>
+				<td width="100">헬머니</td>
+				<td>할부지</td>
+				</tr>
+				<tr bgcolor="red">
+					<td class="table-secondary" width="50"><b>음악</b></td>
+					<td>KPOP</td>
+					<td>JPOP</td>
+					<td>ROCK1</td>
+					<td>ROCK2</td>
+					<td>EUROBEAT</td>
+				</tr>
+				<tr bgcolor="blue">
+					<td class="table-success" width="50"><b>게임</b></td>
+					<td>LOL</td>
+					<td>WOW</td>
+					<td>DIABLO</td>
+					<td colspan="2">SUDDEN ATTACK 2</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
 		
 		
 			<hr> <!hr은 밑줄을 그려줍니다>

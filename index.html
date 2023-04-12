@@ -13,9 +13,13 @@
 		<!d=자바스크립트 적용방법. head에 이렇게 script type, src defer로 넣음>
 		<script type="text/javascript" src="js/search.js" defer></script>
 		<script type="text/javascript" src="js/basic_test.js" defer></script>
+		<script type="text/javascript" src="js/data_type.js" defer></script>
+		<script type="text/javascript" src="js/pop_up.js" defer></script> 
+		<!--ㄴ 팝업은 body를 수정:<body onload="pop_up();"> -->
 		<!defer: 자바스크립트를 먼저 다 불러온 후에 html을 불러오게끔 함>
 	</head>
-	<body> <!하이퍼링크는 body태그에서 주로 사용됨>
+		
+	<body onload="pop_up();"> <!하이퍼링크는 body태그에서 주로 사용됨>
 		<!--
 		<p style="text-align:left">	
 		</p><font size="2em" color="orange">문서제목,자바스크립트 코드, CSS 스타일 정의, 메타데이터정의</font>

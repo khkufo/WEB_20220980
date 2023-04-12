@@ -9,7 +9,7 @@ if(true){
 	var c_1='var 접근'; //전역변수
 }
 //console.log(c); //if문 내에서만 사용되는 let변수이므로 에러남
-console.log(c_1);
+console.log(c_1); //출력
 
 let d=5; //let=var
 //let d='값 재할당'; //let은 값 재할당이 안됨. 

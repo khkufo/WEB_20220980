@@ -15,6 +15,7 @@
 		<script type="text/javascript" src="js/basic_test.js" defer></script>
 		<script type="text/javascript" src="js/data_type.js" defer></script>
 		<script type="text/javascript" src="js/pop_up.js" defer></script> 
+		<script type="text/javascript" src="js/hover.js" defer></script>
 		<!--ㄴ 팝업은 body를 수정:<body onload="pop_up();"> -->
 		<!defer: 자바스크립트를 먼저 다 불러온 후에 html을 불러오게끔 함>
 		<script type="text/javascript" src="js/array_test.js" defer></script>
@@ -109,7 +110,7 @@
 		<!--p style="text-align:center"--> <!가운데정렬을 div정렬방식으로 바꿔줌. img fluid가 부모 태그 이상 커지지 않으므로>
 		<div class="mx-auto" style="width:500px;">
 			<!target 속성(링크) _blank(새창),_self(현재창(기본값)),_parent(이전부모창),_top(현재윈도우전체)>
-		<a href="index.html" target="_blank"> <img src="img/googlelogo_color_272x92dp.png" class="img-fluid" alt="구글이미지"></a> <!이미지에 하이퍼링크>
+		<a href="index.html" target="_blank"> <img src="img/googlelogo_color_272x92dp.png" class="img-fluid" alt="구글이미지" onmouseover="over(this)" onmouseout="out(this)"></a> <!이미지에 하이퍼링크>
 			<img src="" class="img-fluid" alt=""> <!이미지 반응형 자동크기조정>
 			<!img(태그) src(경로)="폴더명/파일명..." 폴더명 일치시켜야 함!! 이미지 깨지면 alt출력></div>
 		<br>
@@ -117,7 +118,7 @@
 		<p style="text-align:center"> 검색 :<input type="text" name="search" size="55" value=""> <button id="search_btn" type="button" onclick="alert('검색을 수행합니다!')"> 검색 </button>
 		<br><br><br><br><br><br> <!간격을 위해 줄바꿈을 여러번 추가></p>
 		-->
-		<form action="https://www.google.co.kr/search" method="GET" target='_blank'>
+		<form id="form_main" action="https://www.google.co.kr/search" method="GET" target='_blank' onsubmit="return false">
 			<!--form은 입력받은게 어디로 갈지 정해줌. GET은 입력한 검색어가 주소에 노출됨.(public)/POST는 입력정보가 url에 노출되지 않음.(private)-->
 			<div class="d-flex justify-content-center">
 				<mx-auto>

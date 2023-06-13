@@ -26,6 +26,12 @@ function no_str(message){
 	if(message.value=="비속어1"){
 		alert((message.value)+"은(는) 검색어로 적절하지 않습니다.");
 	}
+	else if(message.value=="비속어2"){
+		alert((message.value)+"은(는) 검색어로 적절하지 않습니다.");
+	}
+	else if(message.value=="비속어3"){
+		alert((message.value)+"은(는) 검색어로 적절하지 않습니다.");
+	}
 	else{
 		alert("검색을 수행합니다!")
 		search_array.push(message.value); //배열에 검색어 추가

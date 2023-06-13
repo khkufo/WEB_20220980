@@ -24,6 +24,12 @@ function session_set(){ //세션 저장(객체)
 		let en_text=encrypt_text(objString); //암호화
 		sessionStorage.setItem('Session_Storage_object', objString);
 		sessionStorage.setItem('Session_Storage_encrypted',en_text);
+		
+		var login_time;
+		var login_time2=300; //10초 설정
+		clearTimeout(login_time); //재호출 정지
+		close_time=setTimeout("logout()",1000); //1000=1초
+
 	   }else{
 		   alert('세션 스토리지 지원 x');
 	   }

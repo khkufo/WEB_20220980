@@ -11,7 +11,7 @@ addJavascript('/js/cookie.js'); //쿠키 함수
 
 var login_cnt=0;
 var logout_cnt=0;
-
+var login_fail=0;
 
 function login(){
     var form = document.querySelector("#form_main");
@@ -57,7 +57,9 @@ function login_check(a,b){
 			return true;
 		}
 		alert("올바른 비밀번호를 입력하세요");
+		if(login_fail()){
 		return false;
+		}
 	}
 	else{
 		alert("올바른 이메일 주소를 입력하세요");
@@ -66,13 +68,23 @@ function login_check(a,b){
 	
 }
 
+function login_fail(){
+	var login_fail = getCookie("login_fail"); //쿠키의 값을 가져와서 더해줘야 함!!
+    login_fail = parseInt(login_fail) || 0;
+    login_fail += 1;
+	
+	if(login_fail==3){
+		alert("로그인 가능 횟수를 초과했습니다.");
+		return true;
+	}
+	setCookie("login_fail",login_fail,1);
+}
 
 function login_count(){
 	var login_cnt = getCookie("login_cnt"); //쿠키의 값을 가져와서 더해줘야 함!!
     login_cnt = parseInt(login_cnt) || 0;
     login_cnt += 1;
 	setCookie("login_cnt",login_cnt,1);
-	//console.log(login_cnt);
 }
 
 
@@ -86,7 +98,6 @@ function logout_count(){
     logout_cnt = parseInt(logout_cnt) || 0;
     logout_cnt += 1;
 	setCookie("logout_cnt",logout_cnt,1);
-	//console.log(logout_cnt);
 }
 
 

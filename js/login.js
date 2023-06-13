@@ -31,17 +31,50 @@ function login(){
     if(id.value.length === 0 || password.value.length === 0){
         alert("아이디와 비밀번호를 모두 입력해주세요.");
     }else{
-		login_check(id.value,password.value);
+		if(login_check(id.value,password.value)){
 			session_set(); //세션 생성
         	form.submit();
+		}
 	}
 }
 
+function login_check(a,b){
+	let regex = new RegExp('^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$');
+	let regex2 = new RegExp('^[a-zA-Z0-9+-\_.]$');
+	
+	let id=a;
+	let password=b;
+	
+    let idCheck = (regex.test(id));
+	let passCheck = (regex2.test(password));
+	
+	if(idCheck){
+		if(passCheck){
+			return true;
+		}
+		alert("올바른 비밀번호를 입력하세요");
+		return false;
+	}
+	else{
+		alert("올바른 이메일 주소를 입력하세요");
+		return false;
+	}
+	
+}
+
+let login_cnt=0;
+let logout_cnt=0;
 
 function logout(){
+	logout_count();
 	session_del();
 	location.href="index.html";
 }
+function logout_count(){
+	logout_cnt +=1;
+	setCookie("logout_cnt",logout_cnt.value,1);
+}
+
 
 function get_id(){
     var getParameters = function(paramName){ // 변수 = 함수(이름)
@@ -76,26 +109,7 @@ function init(){ //로그인 폼에 쿠키에서 가져온 아이디 입력
 	session_check(); //세션 유무 검사
 }
 
-function login_check(a,b){
-	let regex = new RegExp('^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$');
-	let regex2 = new RegExp('^[a-zA-Z0-9+-\_.]$');
-	//문자, 숫자, 특수문자가 각각 최소 1개 이상은 들어있어야 하고, 최소 8자리에서 최대 16자리까지 허용
-	let id=a;
-	let password=b;
-	
-    let idCheck = console.log(regex.test(id));
-	let passCheck = console.log(regex2.test(password));
-	
-	if(idCheck==true){
-		if(passCheck==true){
-			return;
-		}
-		alert("올바른 비밀번호를 입력하세요");
-	}
-	else if(idCheck==false){
-		alert("올바른 이메일 주소를 입력하세요");
-	}
-}
+
 
 
 

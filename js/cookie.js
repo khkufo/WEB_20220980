@@ -4,7 +4,7 @@ function setCookie(name,value,expiredays){
 	document.cookie=escape(name)+"="+escape(value)+";expires="+date.toUTCString()+"SameSite=None;Secure";
 	//getDate 함수는 utc표준 날짜 리턴
 }
-
+/*
 function getCookie(name){ //쿠키가 존재하면 얻는다(쿠키는 키,값으로 이루어짐. 값은 인덱스 [1])
 	var cookie=document.cookie;
 	console.log("쿠키를 요청합니다.");
@@ -18,6 +18,14 @@ function getCookie(name){ //쿠키가 존재하면 얻는다(쿠키는 키,값�
 		}
 	}
 	return;
+}
+*/
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length === 2) {
+        return parts.pop().split(";").shift();
+    }
 }
 
 function deleteCookie(cookieName){

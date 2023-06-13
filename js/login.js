@@ -9,6 +9,9 @@ addJavascript('/js/security.js'); //암복호화 함수
 addJavascript('/js/session.js'); //세션함수
 addJavascript('/js/cookie.js'); //쿠키 함수
 
+var login_cnt=0;
+var logout_cnt=0;
+
 
 function login(){
     var form = document.querySelector("#form_main");
@@ -32,6 +35,7 @@ function login(){
         alert("아이디와 비밀번호를 모두 입력해주세요.");
     }else{
 		if(login_check(id.value,password.value)){
+			login_count();
 			session_set(); //세션 생성
         	form.submit();
 		}
@@ -62,8 +66,15 @@ function login_check(a,b){
 	
 }
 
-let login_cnt=0;
-let logout_cnt=0;
+
+function login_count(){
+	var login_cnt = getCookie("login_cnt"); //쿠키의 값을 가져와서 더해줘야 함!!
+    login_cnt = parseInt(login_cnt) || 0;
+    login_cnt += 1;
+	setCookie("login_cnt",login_cnt,1);
+	//console.log(login_cnt);
+}
+
 
 function logout(){
 	logout_count();
@@ -71,8 +82,11 @@ function logout(){
 	location.href="index.html";
 }
 function logout_count(){
-	logout_cnt +=1;
-	setCookie("logout_cnt",logout_cnt.value,1);
+	var logout_cnt = getCookie("logout_cnt");
+    logout_cnt = parseInt(logout_cnt) || 0;
+    logout_cnt += 1;
+	setCookie("logout_cnt",logout_cnt,1);
+	//console.log(logout_cnt);
 }
 
 
